@@ -12,10 +12,44 @@
   <div class="row" style='position:relative;z-index:100;'>
       <img src='./img/header.png' style='width:93%;margin-left:3.5%' >
   </div>
-<div class='context' id='questions'></div>
+<div class='context' id='questions'>
+  <div class='question-box'>
+    <h2 class='bold' style='margin-top:40px;'>Question 1</h2>
+    <p>Compare the net book value of Toyota's capital lease assets with the present value of the net minimum lease payments of its capital leases. Both amounts appear on Toyota's balance sheet.Identify why these two values differ so considerably.</p>
+  </div>
+  <div class='question-answer row'>
+    <div class='col-xs-1'>
+      <div class='tick-box' id='1'>
+      </div>
+    </div>
+    <div class='col-xs-9'>
+      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because lease
+assets are depreciated at a rate that is different from the reduction rate of lease liabilities.
+</p>
+    </div>
+  </div>
+  <div class='question-answer row'>
+    <div class='col-xs-1'>
+      <div class='tick-box' id='2'>
+      </div>
+    </div>
+    <div class='col-xs-9'>
+      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because lease commitments liabilities are broken down by time bands.</p>
+    </div>
+  </div>
+  <div class='question-answer row'>
+    <div class='col-xs-1'>
+      <div class='tick-box' id='3'>
+      </div>
+    </div>
+    <div class='col-xs-9'>
+      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because the undiscounted minimum lease payment balances are estimated values.</p>
+    </div>
+  </div>
+</div>
 <div class='context' id='explanation'>
-  <p><span class='bold'>Toyota's Disclosures of its Capital (Finance) Lease Commitments</span><br>
-  GAAPs require lessees to recognise capital lease arrangements on the balance sheet as lease assets and lease liabilities. GAAPs also require lessees to disclose</p>
+  <h2 class='bold center'>Toyota's Disclosures of its Capital (Finance) Lease Commitments</h2>
+  <p>GAAPs require lessees to recognise capital lease arrangements on the balance sheet as lease assets and lease liabilities. GAAPs also require lessees to disclose</p>
   <ol>
     <li>
       Information about the carrying amount of each class of lease assets at the reporting date
@@ -220,26 +254,16 @@ Toyota Corp.<br>Finance (or Capital) Lease Disclosures
 <p>To test your understanding of capital lease arrangements, click the Question button.</p>
 </div>
 <div class='subhead'>
-  <p class='subhead-text'>hello</p>
+  <h2 class='subhead-text' style='color:white;margin-top:0px;'>Explanation</h2>
 </div>
 </div>
 </div>
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 <script src="./dist/js/jquery-2.1.4.min.js"></script>
 <script src="./dist/js/bootstrap.min.js"></script>
+<script src="./dist/js/custom.js"></script>
 <script>
-var click=false;
-$('.subhead').on('click',function(){
-  if(click){
-      $('#explanation').css('margin-top','-70vh');
-      $('#explanation').css('opacity','1');
-  }
-  else{
-    $('#explanation').css('margin-top','-140vh');
-    $('#explanation').css('opacity','0');
-  }
-    click=!click;
-});
+
 </script>
 </body>
 </html>
