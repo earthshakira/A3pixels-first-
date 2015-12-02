@@ -1,4 +1,5 @@
 var click=false;
+var active=1;
 $('.subhead').on('click',function(){
   if(click){
       $('#explanation').css('margin-top','-70vh');
