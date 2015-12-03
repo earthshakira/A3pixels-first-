@@ -7,270 +7,344 @@
 </head>
 
 <body>
+  <div class="modal custom fade" id="instrModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bgcolor">
+            <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove" style='  font-size: 40px;'></i></button>
+            <h2 class="modal-title">Instructions</h2>
+          </div>
+          <div class="modal-body">
+            <p>You will be presented with an explanation of different sections and the origins of values in the lease commitment disclosures from Toyota Corporation. It is important to read this text and pay particular attention to the highlighted information of the disclosure. To move through the interaction, scroll down the explanation and click the Question button. Then select your answer. To view the explanation again, click the Explanation button. The Try Again button will allow you to attempt the question again. To close this window and begin the exercise, click the Next button.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal custom fade" id="summModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bgcolor">
+              <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove" style='  font-size: 40px;'></i></button>
+              <h2 class="modal-title">Summary</h2>
+            </div>
+            <div class="modal-body">
+              <p>As you can see, Toyota provided footnote disclosures that detail its operating and capital lease liabilities broken by time bands. Operating lease payments are not discounted. These payments represent the rental payments due in the years ahead. Capital lease payments are discounted and the present value of these payments represents the liability amount recognised in the balance sheet. If you wish to take this exercise again, click the Start Over button. Otherwise, close this window to return to the main page.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" onclick='reset()' style="margin-top:10px">Start Over</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="winClose()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 <div class="screen">
-<div id='float' class='container-fluid'>
-  <div class="row" style='position:relative;z-index:100;'>
-      <img src='./img/header.png' style='width:93%;margin-left:3.5%' >
+<div id='float' class='container-fluid' style="">
+  <div>
+      <img src='./img/header.png' width=95% style='margin-left:2.5%' onclick="triggerInstr()">
   </div>
 <div class='context' id='questions'>
-  <div class='question-box'>
-    <h2 class='bold' style='margin-top:40px;'>Question 1</h2>
-    <p>Compare the net book value of Toyota's capital lease assets with the present value of the net minimum lease payments of its capital leases. Both amounts appear on Toyota's balance sheet.Identify why these two values differ so considerably.</p>
-  </div>
-  <div class='question-answer row'>
-    <div class='col-xs-1'>
-      <div class='tick-box' id='1'>
-        <i class='glyphicon glyphicon-ok marks'></i>
-      </div>
-    </div>
-    <div class='col-xs-9'>
-      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because lease
-assets are depreciated at a rate that is different from the reduction rate of lease liabilities.
-</p>
-    </div>
-  </div>
-  <div class='question-answer row'>
-    <div class='col-xs-1'>
-      <div class='tick-box' id='2'>
-        <i class='glyphicon glyphicon-remove marks hidden'></i>
-      </div>
-    </div>
-    <div class='col-xs-9'>
-      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because lease commitments liabilities are broken down by time bands.</p>
-    </div>
-  </div>
-  <div class='question-answer row'>
-    <div class='col-xs-1'>
-      <div class='tick-box' id='3'>
-        <i class='glyphicon glyphicon-remove marks hidden'></i>
-      </div>
-    </div>
-    <div class='col-xs-9'>
-      <p class='ans-txt'>The balance of the lease asset and that of lease liability do not match because the undiscounted minimum lease payment balances are estimated values.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class='col-xs-8'>
-      <div class='wrong-ans'>
-        <p><span style="">Incorrect:</span>The balance of the lease asset and that of lease liability do not match except at the inception of the lease term and at the end of the lease term because lease assets are depreciated at a rate that is different from the reduction rate of lease liabilities. </p>
-      </div>
-    </div>
-  </div>
 </div>
 <div class='context' id='explanation'>
-  <h2 class='bold center'>Toyota's Disclosures of its Capital (Finance) Lease Commitments</h2>
-  <p>GAAPs require lessees to recognise capital lease arrangements on the balance sheet as lease assets and lease liabilities. GAAPs also require lessees to disclose</p>
-  <ol>
-    <li>
-      Information about the carrying amount of each class of lease assets at the reporting date
-    </li>
-    <li>
-      a reconciliation of lease commitments to the carrying amount of lease liabilities broken down by time bands
-    </li>
-  </ol>
-  <br>
-  <p>
-    The net book value of the lease assets for Toyota as of March 31st 2002 is US$481 million, made up of buildings, machinery and equipment.
-  </p>
-<h4 class='bltxt text-primary center'>
-Toyota Corp.<br>Finance (or Capital) Lease Disclosures
-</h4>
-<div class='lease-table'>
-  <div  style="background-color:#31659C;color:white;text-align:center;">
-    <h4>LEASE COMMITMENTS</h4>
-  </div>
-  <div class='row'>
-    <div class='col-xs-6 nopaddingh'>
-      <h5 class='text-primary'>Toyota leases certain assets under capital lease and operating lease arrangements.
-</h5>
-    </div>
-    <div class='col-xs-6 nopaddingh'>
-      <h5 class='text-primary'>An analysis of leased assets under capital leases is as follows:
+  <!-- Explanation 1 -->
+  <div id='explanation1' class='hidden'>
+        <h2 class='bold center'>Toyota's Disclosures of its Capital (Finance) Lease Commitments</h2>
+        <p>GAAPs require lessees to recognise capital lease arrangements on the balance sheet as lease assets and lease liabilities. GAAPs also require lessees to disclose</p>
+        <ol>
+          <li>
+            Information about the carrying amount of each class of lease assets at the reporting date
+          </li>
+          <li>
+            a reconciliation of lease commitments to the carrying amount of lease liabilities broken down by time bands
+          </li>
+        </ol>
+        <br>
+        <p>
+          The net book value of the lease assets for Toyota as of March 31st 2002 is US$481 million, made up of buildings, machinery and equipment.
+        </p>
+      <h4 class='bltxt text-primary center'>
+      Toyota Corp.<br>Finance (or Capital) Lease Disclosures
+      </h4>
+      <div class='lease-table'>
+        <div  style="background-color:#31659C;color:white;text-align:center;">
+          <h3>LEASE COMMITMENT</h3>
+        </div>
+        <div class='row'>
+          <div class='col-xs-6 nopaddingh'>
+            <h5 class='text-primary'>Toyota leases certain assets under capital lease and operating lease arrangements.
       </h5>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-4 col-xs-offset-6 nopaddingh'>
-      <h5 class='text-primary bold center'>Yen</h5>
-      <h5 class='text-primary bold center'>(in millions)</h5>
-      <hr>
-    </div>
-    <div class='col-xs-2 nopaddingh'>
-      <h5 class='text-primary bold center'>US dollars</h5>
-      <h5 class='text-primary bold center'>(in millions)</h5>
-      <hr>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-4 col-xs-offset-6 nopaddingh'>
-      <h5 class='text-primary center'>31 March</h5>
-      <hr>
-    </div>
-    <div class='col-xs-2 nopaddingh'>
-      <h5 class='text-primary center'>31 March</h5>
-      <hr>
-    </div>
-  </div>
-  <div class='row nopaddingh'>
-    <div class='col-xs-6 nopaddingh'>
-      <h5 class='text-primary'>Class of Property</h5>
-    </div>
-    <div class='col-xs-2 nopaddingh'>
-      <h5 class='text-primary right'>2001</h5>
-    </div>
-    <div class='col-xs-2 nopaddingh'>
-      <h5 class='text-primary right'>2002</h5>
-    </div>
-    <div class='col-xs-2 nopaddingh'>
-      <h5 class='text-primary right'>2002</h5>
-    </div>
-  </div>
-  <hr style="border-width:medium">
-  <div class='row'>
-  <div class='col-xs-6'>
-    <h5 class='text-primary'>Building</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>&#165;9,049</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>&#165;9,836</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>&#x24;74</h5>
-  </div>
-  </div>
-  <div class='row'>
-  <div class='col-xs-6'>
-    <h5 class='text-primary'>Machinery and equipment</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>131,841</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>155,455</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>1,166</h5>
-  </div>
-  </div>
-  <div class='row'>
-  <div class='col-xs-6'>
-    <h5 class='text-primary'>Less-Accumulated depreciation</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>(76,373)</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>(101,169)</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>(759)</h5>
-  </div>
-  </div>
-  <hr>
-  <div class='row'>
-  <div class='col-xs-2 col-xs-offset-6'>
-    <h5 class='text-primary right'>&#165;64,517</h5>
-  </div>
-  <div class='col-xs-2'>
-    <h5 class='text-primary right'>&#165;64,122</h5>
-  </div>
-  <div class='col-xs-2 green'>
-    <h5 class='text-primary right'>&#x24;481</h5>
-  </div>
-  </div>
-  <hr style='border-width:medium'>
-</div>
-<p>The present value of Toyota's net minimum lease payments as of March 31st 2002 is $663 million. The (undiscounted) minimum lease payments are provided for each of the next five years and for the combined period beyond five years. The present value of lease payments due within the next 12 months is $109 million and will be recognised in the current liabilities section of the balance sheet. The remaining liability of $554 million will be recognised in the non-current liabilities section of the balance sheet.</p>
-<div class='lease-table'>
-  <div class='row'>
-    <div class='col-xs-6 nopaddingh'>
-      <h5 class='text-primary'>Amortisation expense under capital leases for the years ending March 31st 2000, 2001 and 2002 were &#xa5; 27,991 million, &#xa5; 17,355 million and &#xa5; 18,361 million ($138 million), respectively.
-      </h5>
-    </div>
-    <div class='col-xs-6 nopaddingh'>
-      <h5 class='text-primary'>Future minimum lease payments under capital leases together with the present value of the net minimum lease payments as of March 31st 2002 are as follows:
-      </h5>
-    </div>
-  </div>
+          </div>
+          <div class='col-xs-6 nopaddingh'>
+            <h5 class='text-primary'>An analysis of leased assets under capital leases is as follows:
+            </h5>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4 col-xs-offset-6 nopaddingh'>
+            <h5 class='text-primary bold center'>Yen</h5>
+            <h5 class='text-primary bold center'>(in millions)</h5>
+            <hr>
+          </div>
+          <div class='col-xs-2 nopaddingh'>
+            <h5 class='text-primary bold center'>US dollars</h5>
+            <h5 class='text-primary bold center'>(in millions)</h5>
+            <hr>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4 col-xs-offset-6 nopaddingh'>
+            <h5 class='text-primary center'>31 March</h5>
+            <hr>
+          </div>
+          <div class='col-xs-2 nopaddingh'>
+            <h5 class='text-primary center'>31 March</h5>
+            <hr>
+          </div>
+        </div>
+        <div class='row nopaddingh'>
+          <div class='col-xs-6 nopaddingh'>
+            <h5 class='text-primary'>Class of Property</h5>
+          </div>
+          <div class='col-xs-2 nopaddingh'>
+            <h5 class='text-primary right'>2001</h5>
+          </div>
+          <div class='col-xs-2 nopaddingh'>
+            <h5 class='text-primary right'>2002</h5>
+          </div>
+          <div class='col-xs-2 nopaddingh'>
+            <h5 class='text-primary right'>2002</h5>
+          </div>
+        </div>
+        <hr style="border-width:medium">
+        <div class='row'>
+        <div class='col-xs-6'>
+          <h5 class='text-primary'>Building</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>&#165;9,049</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>&#165;9,836</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>&#x24;74</h5>
+        </div>
+        </div>
+        <div class='row'>
+        <div class='col-xs-6'>
+          <h5 class='text-primary'>Machinery and equipment</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>131,841</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>155,455</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>1,166</h5>
+        </div>
+        </div>
+        <div class='row'>
+        <div class='col-xs-6'>
+          <h5 class='text-primary'>Less-Accumulated depreciation</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>(76,373)</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>(101,169)</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>(759)</h5>
+        </div>
+        </div>
+        <hr>
+        <div class='row'>
+        <div class='col-xs-2 col-xs-offset-6'>
+          <h5 class='text-primary right'>&#165;64,517</h5>
+        </div>
+        <div class='col-xs-2'>
+          <h5 class='text-primary right'>&#165;64,122</h5>
+        </div>
+        <div class='col-xs-2 green'>
+          <h5 class='text-primary right'>&#x24;481</h5>
+        </div>
+        </div>
+        <hr style='border-width:medium'>
+      </div>
+      <p>The present value of Toyota's net minimum lease payments as of March 31st 2002 is $663 million. The (undiscounted) minimum lease payments are provided for each of the next five years and for the combined period beyond five years. The present value of lease payments due within the next 12 months is $109 million and will be recognised in the current liabilities section of the balance sheet. The remaining liability of $554 million will be recognised in the non-current liabilities section of the balance sheet.</p>
+      <div class='lease-table'>
+        <div class='row'>
+          <div class='col-xs-6 nopaddingh'>
+            <h5 class='text-primary'>Amortisation expense under capital leases for the years ending March 31st 2000, 2001 and 2002 were &#xa5; 27,991 million, &#xa5; 17,355 million and &#xa5; 18,361 million ($138 million), respectively.
+            </h5>
+          </div>
+          <div class='col-xs-6 nopaddingh'>
+            <h5 class='text-primary'>Future minimum lease payments under capital leases together with the present value of the net minimum lease payments as of March 31st 2002 are as follows:
+            </h5>
+          </div>
+        </div>
 
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary bold'>Year ending March 31st</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>Yen in millions</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>US dollars in millions</h5></div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary bold'>Year ending March 31st</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>Yen in millions</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>US dollars in millions</h5></div>
+        </div>
+        <hr style="border-width:medium">
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>2003</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#xa5;17,459</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>$131</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>2004</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>13,853</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>104</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>2005</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>12,393</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>93</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>2006</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>11,560</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>87</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>2007</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>8,116</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>61</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Thereafter</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>39,923</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>299</h5></div>
+        </div>
+        <hr>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Total minimum lease payments</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>103,304</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>775</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Less-Amount representing interest</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>14,931</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>112</h5></div>
+        </div>
+        <hr>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Present value of net minimum lease payments</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>88,373</h5></div>
+          <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>663</h5></div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Less-Current obligations </h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>14,535</h5></div>
+          <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>109</h5></div>
+        </div>
+        <hr>
+        <div class='row'>
+          <div class='col-xs-8 nopadding'><h5 class='text-primary'>Long-term capital lease obligations</h5></div>
+          <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#165;73,838</h5></div>
+          <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>$554</h5></div>
+        </div>
+        <hr style='border-width:medium'>
+      </div>
+      <p>To test your understanding of capital lease arrangements, click the Question button.</p>
   </div>
-  <hr style="border-width:medium">
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>2003</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#xa5;17,459</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>$131</h5></div>
+<!-- end of expl1   -->
+<!-- start of expl2 -->
+<div id='explanation2' class='hidden'>
+    <h2 class='bold center'>Toyota's Disclosures of its Operating Lease Commitments</h2>
+    <p>Unlike that of capital leases, GAAPs do not require lessees to recognise operating lease assets or liabilities on the balance sheet<br>However, GAAPs require the lessee to provide footnote disclosures about:</p>
+    <ol>
+      <li>
+        the total amount of rental expense recognised in the financial year, with separate amounts for minimum lease payments
+      </li>
+      <li>
+        non-cancellable operating leases, the minimum lease payments and, where different from the minimum lease payments, the lease commitments broken down by time bands, according to the time that is expected to elapse from the reporting date to the expected date of payment
+      </li>
+    </ol>
+    <br>
+
+  <h4 class='bltxt text-primary center'>
+  Toyota Corp.<br>Finance (or Capital) Lease Disclosures
+  </h4>
+  <p>
+    Toyota's footnote disclosures show that its rental expense associated with operating leases amounted to $548 million during 2002. This figure also appears in Toyota's income statement as a lease rental expense.<br>Toyota also provided separate disclosures about its (undiscounted) minimum rental payments associated with its operating leases for each of the next five years and for the combined period beyond five years.
+  </p>
+  <div class='lease-table'>
+    <div  style="background-color:#31659C;color:white;text-align:center;height:30px">
+    </div>
+    <div class='row'>
+      <div class='col-xs-6 nopaddingh'>
+        <h5 class='text-primary'>Rental expense under operating leases for the years ending March 31st 2000, 2001 and 2002 were &#xa5; 74,500 million, &#xa5; 64,744 million and &#xa5; 72,989 million ($548 million) respectively.
+  </h5>
+      </div>
+      <div class='col-xs-6 nopaddingh'>
+        <h5 class='text-primary'>The miminum rental payments required under operating leases relating primarily to land,buildings and equipment having initial or remaining non-cancellable lease terms in excess of one year at March 31st 2002 are as follows:</h5>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary bold'>Year ending March 31st</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>Yen in millions</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary bold'>US dollars in millions</h5></div>
+    </div>
+    <hr style="border-width:medium">
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>2003</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#xa5;17,459</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>$131</h5></div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>2004</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>13,853</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>104</h5></div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>2005</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>12,393</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>93</h5></div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>2006</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>11,560</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>87</h5></div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>2007</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>8,116</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>61</h5></div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>Thereafter</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>39,923</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>299</h5></div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col-xs-8 nopadding'><h5 class='text-primary'>Total minimum lease payments</h5></div>
+      <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#165;73,838</h5></div>
+      <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>$554</h5></div>
+    </div>
+    <hr style='border-width:medium'>
   </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>2004</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>13,853</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>104</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>2005</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>12,393</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>93</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>2006</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>11,560</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>87</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>2007</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>8,116</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>61</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Thereafter</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>39,923</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>299</h5></div>
-  </div>
-  <hr>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Total minimum lease payments</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>103,304</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>775</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Less-Amount representing interest</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>14,931</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>112</h5></div>
-  </div>
-  <hr>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Present value of net minimum lease payments</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>88,373</h5></div>
-    <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>663</h5></div>
-  </div>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Less-Current obligations </h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>14,535</h5></div>
-    <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>109</h5></div>
-  </div>
-  <hr>
-  <div class='row'>
-    <div class='col-xs-8 nopadding'><h5 class='text-primary'>Long-term capital lease obligations</h5></div>
-    <div class='col-xs-2 nopadding'><h5 class='text-primary right'>&#165;73,838</h5></div>
-    <div class='col-xs-2 nopadding green'><h5 class='text-primary right'>$554</h5></div>
-  </div>
-  <hr style='border-width:medium'>
 </div>
-<p>To test your understanding of capital lease arrangements, click the Question button.</p>
 </div>
 <div class='subhead'>
-  <h2 class='subhead-text' style='color:white;margin-top:0px;'>Explanation</h2>
+  <h2 class='subhead-text' style='color:white;margin-top:0px;'>Question</h2>
 </div>
 </div>
 </div>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
 <script src="./dist/js/jquery-2.1.4.min.js"></script>
 <script src="./dist/js/bootstrap.min.js"></script>
 <script src="./dist/js/custom.js"></script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
 </body>
 </html>

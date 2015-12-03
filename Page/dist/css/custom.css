@@ -76,7 +76,9 @@ hr{
 
 .green
 {
+  border-radius:10px;
   background-color:rgba(46, 204, 113,1);
+
 }
 
 
@@ -93,6 +95,7 @@ hr{
   z-index:20;
   position:relative;
   margin-top: -70vh;
+  min-height: 70vh;
   opacity:1;
   background-color:rgba(236, 240, 241,1.0);
 }
@@ -107,10 +110,15 @@ hr{
 
 .question-answer
 {
-  height:80px;
+  min-height: 80px;
   margin:10px 40px;
   background-color:#bdc3c7;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.hoverer:hover{
+  background-color:#1ABC9C;
 }
 
 .tick-box{
@@ -118,14 +126,17 @@ hr{
   width:60px;
   border-radius:10px;
   background-color: white;
-  margin-top: 10px;
-  cursor: pointer;
+  margin:10px 10px;
+  float: left;
 }
 
 .ans-txt{
   font-size: 18px;
+  margin-top: 5px;
 }
-
+.ans-txt-wrap{
+  margin-left:80px;
+}
 .marks{
   font-size:60px;
 }
@@ -133,8 +144,38 @@ hr{
 .wrong-ans
 {
   margin-left: 40px;
-  background-color:#c0392b;
-  height:80px;
+  background-color:#e74c3c;
+  min-height:80px;
   border-radius: 10px;
   padding-left:5px;
+  margin:10px 40px;
+}
+
+.wrong-ans-head{
+  font-size: 20px;
+  font-weight:800;
+  color:black;
+  opacity:0.5;
+}
+
+.modal-header{
+background-color:#1ABC9C;
+color:white;
+font-weight: bolder;
+}
+.modal-content{
+  border-radius:20px;
+  overflow: hidden;
+}
+.modal-body{
+
+}
+
+.btn{
+  outline:none;
+  margin-bottom: 10px;
+  align-self: flex-end;
+}
+.float{
+  height:80vh;
 }
